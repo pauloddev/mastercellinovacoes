@@ -782,3 +782,5 @@ h3{font-size:22px;font-weight:700}
   .hud__status{font-size:12px}
   .hud__status strong{font-size:15px}
 }
+/* menu sempre no canto direito no celular */
+@media (max-width:420px){.header .burger{margin-left:auto!important}}
