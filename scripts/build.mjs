@@ -50,6 +50,19 @@ for (const f of ["index.html", "robots.txt", "sitemap.xml"]) {
   writeFileSync(p, txt);
 }
 
+// Versão nos links de CSS e JS: cada deploy força o navegador a baixar os arquivos novos
+{
+  const v = (process.env.VERCEL_GIT_COMMIT_SHA || Date.now().toString(36)).slice(0, 8);
+  for (const f of ["index.html", "404.html"]) {
+    const p = join(OUT, f);
+    if (!existsSync(p)) continue;
+    const txt = readFileSync(p, "utf8")
+      .replace(/(assets\/style\.css)(?:\?v=[^"]*)?"/g, `$1?v=${v}"`)
+      .replace(/(assets\/script\.js)(?:\?v=[^"]*)?"/g, `$1?v=${v}"`);
+    writeFileSync(p, txt);
+  }
+}
+
 // Minifica o CSS em dist/ (sem dependências: remove comentários e espaços extras)
 {
   const cssPath = join(OUT, "assets", "style.css");

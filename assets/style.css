@@ -784,3 +784,15 @@ h3{font-size:22px;font-weight:700}
 }
 /* menu sempre no canto direito no celular */
 @media (max-width:420px){.header .burger{margin-left:auto!important}}
+
+/* sem cantoneiras decorativas */
+.corner{display:none!important}
+
+/* selos flutuantes: dourados e sempre centralizados na foto */
+.badge-float{background:var(--gold-grad);color:#0b0b0b;max-width:calc(100% - 28px);white-space:nowrap;justify-content:center;box-shadow:0 16px 30px -12px rgba(0,0,0,.65);border:1.5px solid rgba(255,241,201,.55)}
+.badge-float svg{color:#0b0b0b}
+@media (max-width:560px){.badge-float{font-size:14px;padding:11px 16px;gap:6px;letter-spacing:.04em}.badge-float svg{width:16px;height:16px}}
+@media (max-width:360px){.badge-float{font-size:12.5px;padding:10px 12px}}
+/* logo à esquerda, ações sempre encostadas à direita */
+.header .brand{margin-right:auto}
+.header .btn--sm{margin-left:0}
